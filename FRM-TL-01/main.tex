@@ -1,212 +1,680 @@
 % !TeX program = xelatex
+
 \documentclass[11pt,a4paper]{article}
+
 \usepackage{fontspec}
 \setmainfont{Latin Modern Roman}
+
 \usepackage[spanish,provide=*]{babel}
 \usepackage[a4paper,margin=2cm]{geometry}
+
 \usepackage{array,booktabs,longtable,tabularx}
 \usepackage{enumitem,microtype,fancyhdr}
 \usepackage[hidelinks]{hyperref}
-\hypersetup{pdfauthor={Anderson Jeampiere Naranjo Flores},pdftitle={FORM-TL-01 - Identificación y clasificación de tipos de requisitos}}
+
+\hypersetup{
+    pdfauthor={Anderson Jeampiere Naranjo Flores},
+    pdftitle={FORM-TL-01 - Identificación y clasificación de tipos de requisitos}
+}
+
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{5pt}
 \setlength{\headheight}{14pt}
 \setlength{\tabcolsep}{4pt}
+
 \renewcommand{\arraystretch}{1.16}
-\setlist[itemize]{nosep,leftmargin=*}
-\setlist[description]{style=nextline,leftmargin=0pt,labelwidth=0pt,labelindent=0pt,font=\normalfont\bfseries}
+
+\setlist[itemize]{
+    nosep,
+    leftmargin=*
+}
+
+\setlist[description]{
+    style=nextline,
+    leftmargin=0pt,
+    labelwidth=0pt,
+    labelindent=0pt,
+    font=\normalfont\bfseries
+}
+
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\small Ingeniería de Requerimientos}
 \fancyhead[R]{\small FORM-TL-01}
 \fancyfoot[C]{\thepage}
-\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\newcolumntype{P}[1]{
+    >{\raggedright\arraybackslash}p{#1}
+}
+
 \begin{document}
+
 \begin{center}
-{\large\bfseries UNIVERSIDAD TÉCNICA ESTATAL DE QUEVEDO}\\[4pt]
-Facultad de Ciencias de la Computación y Diseño Digital\\
-Carrera de Ingeniería de Software\\[10pt]
-{\Large\bfseries Identificación y clasificación de tipos de requisitos}\\[5pt]
-GA-TL-01 / FORM-TL-01
+    {\large\bfseries
+    UNIVERSIDAD TÉCNICA ESTATAL DE QUEVEDO}\\[4pt]
+
+    Facultad de Ciencias de la Computación y Diseño Digital\\
+    Carrera de Ingeniería de Software\\[10pt]
+
+    {\Large\bfseries
+    Identificación y clasificación de tipos de requisitos}\\[5pt]
+
+    GA-TL-01 / FORM-TL-01
 \end{center}
 
 \begin{tabularx}{\textwidth}{@{}>{\bfseries}lX@{}}
-Estudiante & Anderson Jeampiere Naranjo Flores\\
-Asignatura & Ingeniería de Requerimientos (ISR-401)\\
-Nivel y paralelo & Cuarto nivel, Software A\\
-Docente & PhD. Gleiston Cicerón Guerrero Ulloa\\
-Caso & Plataforma de gestión de citas médicas\\
-Fecha & 7 de noviembre de 2026\\
+    Estudiante &
+    Anderson Jeampiere Naranjo Flores\\
+
+    Asignatura &
+    Ingeniería de Requerimientos (ISR-401)\\
+
+    Nivel y paralelo &
+    Cuarto nivel, Software A\\
+
+    Docente &
+    PhD. Gleiston Cicerón Guerrero Ulloa\\
+
+    Caso &
+    Plataforma de gestión de citas médicas\\
+
+    Fecha &
+    7 de noviembre de 2026\\
 \end{tabularx}
 
 \section{Objetivo y criterios}
-Clasificar los 20 enunciados del Policlínico Ribera del Quevedo y reformular los cinco requisitos de calidad vagos. El análisis distingue el tipo de requisito, su relación con el producto o el proceso y su alcance de sistema o software.
 
-Se considera \textbf{funcional} un comportamiento o resultado que debe ofrecer la solución. Un requisito de \textbf{calidad} describe una propiedad del producto. Una \textbf{restricción} limita las alternativas de solución o las condiciones del desarrollo. Estas definiciones se presentan como paráfrasis del glosario de IREB~\cite{ireb}. ISO/IEC/IEEE 29148:2018 se utiliza como referencia general para la ingeniería de requisitos~\cite{ieee}.
+Clasificar los 20 enunciados del Policlínico Ribera del Quevedo
+y reformular los cinco requisitos de calidad vagos. El análisis
+distingue el tipo de requisito, su relación con el producto o el
+proceso y su alcance de sistema o software.
 
-Producto se refiere a la solución entregada y proceso a las actividades para desarrollarla. Se usa sistema cuando intervienen varios componentes o servicios y software cuando la obligación se asigna a la aplicación. Para las condiciones del proyecto, sistema/software no aplica directamente. Esta interpretación se mantiene en toda la matriz.
+Se considera \textbf{funcional} un comportamiento o resultado que
+debe ofrecer la solución. Un requisito de \textbf{calidad} describe
+una propiedad del producto. Una \textbf{restricción} limita las
+alternativas de solución o las condiciones del desarrollo.
 
-Las características de calidad se presentan según ISO/IEC 25010:2023~\cite{iso}. El origen de dominio se indica cuando corresponde, sin confundirlo con el comportamiento que debe implementar el software.
+Estas definiciones se presentan como paráfrasis del glosario de
+IREB~\cite{ireb}. ISO/IEC/IEEE 29148:2018 se utiliza como referencia
+general para la ingeniería de requisitos~\cite{ieee}.
 
+Producto se refiere a la solución entregada y proceso a las
+actividades para desarrollarla. Se usa sistema cuando intervienen
+varios componentes o servicios y software cuando la obligación se
+asigna a la aplicación. Para las condiciones del proyecto,
+sistema/software no aplica directamente. Esta interpretación se
+mantiene en toda la matriz.
+
+Las características de calidad se presentan según
+ISO/IEC 25010:2023~\cite{iso}. El origen de dominio se indica cuando
+corresponde, sin confundirlo con el comportamiento que debe
+implementar el software.
+
+La calidad del producto y la calidad de sus requisitos son aspectos
+distintos. Montgomery y colaboradores estudian atributos de los
+requisitos como ambigüedad, completitud y
+consistencia~\cite{montgomery2022}. En este taller se revisan tanto
+las propiedades exigidas a la plataforma como la claridad de los
+enunciados que las expresan.
+
+\clearpage
 \section{Matriz de clasificación}
-Los códigos corresponden a los enunciados originales incluidos en el anexo. La columna ISO se completa cuando el tipo principal es calidad. Las relaciones secundarias se aclaran después de la tabla.
+
+Los códigos corresponden a los enunciados originales incluidos en
+el anexo. La columna ISO se completa cuando el tipo principal es
+calidad. Las relaciones secundarias se aclaran después de la tabla.
 
 {\small
-\begin{longtable}{@{}P{0.65cm}P{1.7cm}P{1.7cm}P{1.8cm}P{2.7cm}P{5.6cm}@{}}
+
+\begin{longtable}{
+    @{}
+    P{0.65cm}
+    P{1.7cm}
+    P{1.7cm}
+    P{1.8cm}
+    P{2.7cm}
+    P{5.6cm}
+    @{}
+}
+
 \toprule
-\textbf{ID} & \textbf{Tipo} & \textbf{Producto /\newline proceso} & \textbf{Sistema /\newline software} & \textbf{ISO 25010:2023} & \textbf{Justificación}\\
+\textbf{ID} &
+\textbf{Tipo} &
+\textbf{Producto /\newline proceso} &
+\textbf{Sistema /\newline software} &
+\textbf{ISO 25010:2023} &
+\textbf{Justificación}\\
 \midrule
 \endfirsthead
-\multicolumn{6}{@{}l}{\small Matriz de clasificación (continuación)}\\[4pt]
+
+\multicolumn{6}{@{}l}{
+    \small Matriz de clasificación (continuación)
+}\\[4pt]
+
 \toprule
-\textbf{ID} & \textbf{Tipo} & \textbf{Producto /\newline proceso} & \textbf{Sistema /\newline software} & \textbf{ISO 25010:2023} & \textbf{Justificación}\\
+\textbf{ID} &
+\textbf{Tipo} &
+\textbf{Producto /\newline proceso} &
+\textbf{Sistema /\newline software} &
+\textbf{ISO 25010:2023} &
+\textbf{Justificación}\\
 \midrule
 \endhead
+
 \midrule
-\multicolumn{6}{r@{}}{\small Continúa en la página siguiente}\\
+\multicolumn{6}{r@{}}{
+    \small Continúa en la página siguiente
+}\\
 \endfoot
+
 \bottomrule
 \endlastfoot
-E01 & Funcional & Producto & Software & No aplica & Define el resultado de reservar un turno disponible mediante la aplicación.\\[4pt]
-E02 & Funcional & Producto & Sistema & No aplica & Exige un envío programado. Su cumplimiento de extremo a extremo depende de la aplicación y del servicio SMS.\\[4pt]
-E03 & Calidad & Producto & Software & Eficiencia de desempeño / comportamiento temporal & Expresa una propiedad de rendimiento sin tiempo de respuesta ni condiciones de carga.\\[4pt]
-E04 & Funcional & Producto & Software & No aplica & Especifica una operación de registro que ejecuta el recepcionista en la aplicación.\\[4pt]
-E05 & Restricción & Producto & Software & No aplica & Impone lenguaje, versión y gestor de datos. Limita las alternativas de implementación del producto.\\[4pt]
-E06 & Funcional & Producto & Software & No aplica & Exige consultar la agenda y actualizar el estado de atención. Conviene separar ambas operaciones.\\[4pt]
-E07 & Calidad & Producto & Sistema & Seguridad / confidencialidad e integridad & Solicita protección de datos a través de la plataforma. No permite decidir por sí solo qué amenazas y propiedades cubre.\\[4pt]
-E08 & Restricción & Producto & Software & No aplica & Impone un entorno de ejecución. La lista de versiones y los criterios de funcionamiento deben delimitarse.\\[4pt]
-E09 & Funcional & Producto & Software & No aplica & Ordena una transformación observable del estado de la cita según una regla del policlínico.\\[4pt]
-E10 & Calidad & Producto & Sistema & Capacidad de interacción / inclusividad y operabilidad & Plantea una cualidad de la interacción del grupo destinatario, sin tarea, tasa de éxito ni tiempo.\\[4pt]
-E11 & Restricción & Proceso & No aplica & No aplica & Limita el plazo del proyecto. Requiere acordar el hito que inicia el cómputo.\\[4pt]
-E12 & Funcional & Producto & Software & No aplica & Describe un comportamiento automático verificable, aunque su finalidad sea proteger una sesión.\\[4pt]
-E13 & Funcional & Producto & Sistema & No aplica & Requiere coordinar software, pantalla táctil e impresora para producir el ticket.\\[4pt]
-E14 & Calidad & Producto & Sistema & Fiabilidad / disponibilidad & Expresa continuidad de servicio, pero no define período de observación ni margen de indisponibilidad.\\[4pt]
-E15 & Funcional & Producto & Software & No aplica & Exige producir un informe con período y agrupación definidos.\\[4pt]
-E16 & Restricción & Proceso & No aplica & No aplica & Impone participante, frecuencia y momento de revisión del incremento.\\[4pt]
-E17 & Restricción & Producto y proceso & Sistema & No aplica & La obligación legal condiciona tanto las funciones de tratamiento como los procedimientos de la organización.\\[4pt]
-E18 & Calidad & Producto & Sistema & Compatibilidad / interoperabilidad & La expresión sin problemas exige concretar el intercambio y sus criterios de aceptación con el proveedor.\\[4pt]
-E19 & Calidad & Producto & Sistema & Fiabilidad / recuperabilidad & Fija tiempo de recuperación y preservación de datos confirmados ante un fallo del servidor.\\[4pt]
-E20 & Restricción & Proceso & No aplica & No aplica & Impone una revisión por pares previa a integrar cambios. No especifica una capacidad de la aplicación.\\[4pt]
-\end{longtable}}
 
-\textbf{Casos que requieren aclaración.} E02 se considera de sistema porque se analiza el envío del recordatorio con el servicio SMS incluido. E08 impone una plataforma de ejecución, aunque también se relaciona con la adaptabilidad. E09 es funcional porque exige registrar un estado a partir de una regla del dominio. E12 describe el cierre automático de la sesión, por lo que se clasifica como funcional aunque tenga una finalidad de seguridad. E17 afecta tanto al producto como a los procedimientos de tratamiento de datos.
+E01 &
+Funcional &
+Producto &
+Software &
+No aplica &
+Define el resultado de reservar un turno disponible mediante
+la aplicación.
+\\[4pt]
 
-En E07, confidencialidad e integridad son aspectos propuestos para concretar la protección de los datos. La frase original no permite determinar por sí sola todas las propiedades de seguridad necesarias. En E10 se consideran inclusividad, por la población destinataria, y operabilidad, por la facilidad para realizar las tareas.
+E02 &
+Funcional &
+Producto &
+Sistema &
+No aplica &
+Exige un envío programado. Su cumplimiento de extremo a extremo
+depende de la aplicación y del servicio SMS.
+\\[4pt]
+
+E03 &
+Calidad &
+Producto &
+Software &
+Eficiencia de desempeño / comportamiento temporal &
+Expresa una propiedad de rendimiento sin tiempo de respuesta
+ni condiciones de carga.
+\\[4pt]
+
+E04 &
+Funcional &
+Producto &
+Software &
+No aplica &
+Especifica una operación de registro que ejecuta el recepcionista
+en la aplicación.
+\\[4pt]
+
+E05 &
+Restricción &
+Producto &
+Software &
+No aplica &
+Impone lenguaje, versión y gestor de datos. Limita las alternativas
+de implementación del producto.
+\\[4pt]
+
+E06 &
+Funcional &
+Producto &
+Software &
+No aplica &
+Exige consultar la agenda y actualizar el estado de atención.
+Conviene separar ambas operaciones.
+\\[4pt]
+
+E07 &
+Calidad &
+Producto &
+Sistema &
+Seguridad / confidencialidad e integridad &
+Solicita protección de datos a través de la plataforma. No permite
+decidir por sí solo qué amenazas y propiedades cubre.
+\\[4pt]
+
+E08 &
+Restricción &
+Producto &
+Software &
+No aplica &
+Impone un entorno de ejecución. La lista de versiones y los
+criterios de funcionamiento deben delimitarse.
+\\[4pt]
+
+E09 &
+Funcional &
+Producto &
+Software &
+No aplica &
+Ordena una transformación observable del estado de la cita según
+una regla del policlínico.
+\\[4pt]
+
+E10 &
+Calidad &
+Producto &
+Sistema &
+Capacidad de interacción / inclusividad y operabilidad &
+Plantea una cualidad de la interacción del grupo destinatario,
+sin tarea, tasa de éxito ni tiempo.
+\\[4pt]
+
+E11 &
+Restricción &
+Proceso &
+No aplica &
+No aplica &
+Limita el plazo del proyecto. Requiere acordar el hito que inicia
+el cómputo.
+\\[4pt]
+
+E12 &
+Funcional &
+Producto &
+Software &
+No aplica &
+Describe un comportamiento automático verificable, aunque su
+finalidad sea proteger una sesión.
+\\[4pt]
+
+E13 &
+Funcional &
+Producto &
+Sistema &
+No aplica &
+Requiere coordinar software, pantalla táctil e impresora para
+producir el ticket.
+\\[4pt]
+
+E14 &
+Calidad &
+Producto &
+Sistema &
+Fiabilidad / disponibilidad &
+Expresa continuidad de servicio, pero no define período de
+observación ni margen de indisponibilidad.
+\\[4pt]
+
+E15 &
+Funcional &
+Producto &
+Software &
+No aplica &
+Exige producir un informe con período y agrupación definidos.
+\\[4pt]
+
+E16 &
+Restricción &
+Proceso &
+No aplica &
+No aplica &
+Impone participante, frecuencia y momento de revisión
+del incremento.
+\\[4pt]
+
+E17 &
+Restricción &
+Producto y proceso &
+Sistema &
+No aplica &
+La obligación legal condiciona tanto las funciones de tratamiento
+como los procedimientos de la organización.
+\\[4pt]
+
+E18 &
+Calidad &
+Producto &
+Sistema &
+Compatibilidad / interoperabilidad &
+La expresión sin problemas exige concretar el intercambio y
+sus criterios de aceptación con el proveedor.
+\\[4pt]
+
+E19 &
+Calidad &
+Producto &
+Sistema &
+Fiabilidad / recuperabilidad &
+Fija tiempo de recuperación y preservación de datos confirmados
+ante un fallo del servidor.
+\\[4pt]
+
+E20 &
+Restricción &
+Proceso &
+No aplica &
+No aplica &
+Impone una revisión por pares previa a integrar cambios.
+No especifica una capacidad de la aplicación.
+\\[4pt]
+
+\end{longtable}
+}
+
+\textbf{Casos que requieren aclaración.}
+E02 se considera de sistema porque se analiza el envío del
+recordatorio con el servicio SMS incluido.
+
+E08 impone una plataforma de ejecución, aunque también se
+relaciona con la adaptabilidad.
+
+E09 es funcional porque exige registrar un estado a partir de una
+regla del dominio.
+
+E12 describe el cierre automático de la sesión, por lo que se
+clasifica como funcional aunque tenga una finalidad de seguridad.
+
+E17 afecta tanto al producto como a los procedimientos de
+tratamiento de datos.
+
+En E07, confidencialidad e integridad son aspectos propuestos para
+concretar la protección de los datos. La frase original no permite
+determinar por sí sola todas las propiedades de seguridad necesarias.
+
+En E10 se consideran inclusividad, por la población destinataria,
+y operabilidad, por la facilidad para realizar las tareas.
 
 \section{Reformulación de los cinco requisitos vagos}
-Se reformulan E03, E07, E10, E14 y E18. Los umbrales son propuestas para discutir con el director médico y el área de TI. No son resultados de pruebas ni valores exigidos por la norma.
+
+Se reformulan E03, E07, E10, E14 y E18. Los umbrales son propuestas
+para discutir con el director médico y el área de TI.
+No son resultados de pruebas ni valores exigidos por la norma.
 
 \subsection{E03. Rapidez}
-\textbf{Problema.} La palabra «rápida» no permite comprobar el cumplimiento.
 
-\textbf{Redacción propuesta.} Durante una prueba de 30 minutos con 300 sesiones activas, el 95\,\% de las consultas de disponibilidad mostrará los horarios en un máximo de 2 segundos. La proporción de consultas fallidas no superará el 1\,\%.
+\textbf{Problema.}
+La palabra «rápida» no permite comprobar el cumplimiento.
 
-\textbf{Métrica y umbral.} Percentil 95 del tiempo de respuesta $\leq 2$ segundos y tasa de fallos $\leq 1\,\%$.
+\textbf{Redacción propuesta.}
+Durante una prueba de 30 minutos con 300 sesiones activas,
+el 95\,\% de las consultas de disponibilidad mostrará los horarios
+en un máximo de 2 segundos. La proporción de consultas fallidas
+no superará el 1\,\%.
 
-\textbf{Verificación.} Simular que cada sesión consulta disponibilidad cada 10 segundos. Medir desde el envío de la consulta hasta que se muestran los resultados. Utilizar 12\,000 pacientes ficticios, agendas abiertas y una red de prueba de 10 Mb/s con 100 ms de latencia de ida y vuelta por cliente. Registrar la configuración del servidor. El perfil de uso y la red son condiciones propuestas para repetir la prueba.
+\textbf{Métrica y umbral.}
+Percentil 95 del tiempo de respuesta $\leq 2$ segundos y
+tasa de fallos $\leq 1\,\%$.
+
+\textbf{Verificación.}
+Simular que cada sesión consulta disponibilidad cada 10 segundos.
+Medir desde el envío de la consulta hasta que se muestran los
+resultados. Utilizar 12\,000 pacientes ficticios, agendas abiertas
+y una red de prueba de 10 Mb/s con 100 ms de latencia de ida y
+vuelta por cliente. Registrar la configuración del servidor.
+El perfil de uso y la red son condiciones propuestas para
+repetir la prueba.
 
 \subsection{E07. Protección de los datos}
-\textbf{Problema.} «Seguros» no identifica qué accesos o modificaciones deben impedirse.
 
-\textbf{Redacción propuesta.} La plataforma rechazará todos los intentos de lectura y modificación de datos de salud realizados por usuarios sin permiso en una batería de al menos 100 casos de lectura y 100 de modificación. Ninguna respuesta revelará los datos protegidos y ningún registro será alterado.
+\textbf{Problema.}
+«Seguros» no identifica qué accesos o modificaciones deben impedirse.
 
-\textbf{Métrica y umbral.} Lecturas no autorizadas exitosas: 0. Modificaciones no autorizadas exitosas: 0.
+\textbf{Redacción propuesta.}
+La plataforma rechazará todos los intentos de lectura y modificación
+de datos de salud realizados por usuarios sin permiso en una batería
+de al menos 100 casos de lectura y 100 de modificación.
+Ninguna respuesta revelará los datos protegidos y ningún registro
+será alterado.
 
-\textbf{Verificación.} Preparar una matriz de roles y permisos. Cubrir cada operación protegida y cada rol sin autorización al menos una vez, ampliando la batería cuando sea necesario. Usar datos ficticios y comparar las respuestas y los registros antes y después de cada intento. Esta prueba aborda confidencialidad e integridad frente a accesos indebidos, pero no demuestra seguridad total.
+\textbf{Métrica y umbral.}
+Lecturas no autorizadas exitosas: 0.
+Modificaciones no autorizadas exitosas: 0.
+
+\textbf{Verificación.}
+Preparar una matriz de roles y permisos. Cubrir cada operación
+protegida y cada rol sin autorización al menos una vez, ampliando
+la batería cuando sea necesario. Usar datos ficticios y comparar
+las respuestas y los registros antes y después de cada intento.
+Esta prueba aborda confidencialidad e integridad frente a accesos
+indebidos, pero no demuestra seguridad total.
 
 \subsection{E10. Facilidad de uso para adultos mayores}
-\textbf{Problema.} «Fácil de usar» depende de la tarea y de las personas que la realizan.
 
-\textbf{Redacción propuesta.} En una prueba con 20 personas de 60 años o más, al menos 18 completarán una reserva sin ayuda del evaluador y en un máximo de 3 minutos por persona, desde la pantalla de inicio de sesión hasta el comprobante de confirmación.
+\textbf{Problema.}
+«Fácil de usar» depende de la tarea y de las personas que la realizan.
 
-\textbf{Métrica y umbral.} Al menos el 90\,\% completará la tarea sin ayuda dentro de 180 segundos.
+\textbf{Redacción propuesta.}
+En una prueba con 20 personas de 60 años o más, al menos 18
+completarán una reserva sin ayuda del evaluador y en un máximo de
+3 minutos por persona, desde la pantalla de inicio de sesión hasta
+el comprobante de confirmación.
 
-\textbf{Verificación.} Entregar credenciales de prueba y la misma instrucción a todos los participantes. Utilizar teléfonos Android compatibles de gama media o baja y datos ficticios. Registrar el éxito, el tiempo y el dispositivo utilizado. La evaluación está propuesta y todavía no se ha realizado.
+\textbf{Métrica y umbral.}
+Al menos el 90\,\% completará la tarea sin ayuda dentro
+de 180 segundos.
+
+\textbf{Verificación.}
+Entregar credenciales de prueba y la misma instrucción a todos
+los participantes. Utilizar teléfonos Android compatibles de gama
+media o baja y datos ficticios. Registrar el éxito, el tiempo y el
+dispositivo utilizado. La evaluación está propuesta y todavía
+no se ha realizado.
 
 \subsection{E14. Disponibilidad}
-\textbf{Problema.} «Siempre disponible» no define un período de medición ni cómo tratar las interrupciones.
 
-\textbf{Redacción propuesta.} La plataforma permitirá iniciar sesión, consultar disponibilidad y confirmar reservas durante al menos el 99,5\,\% de cada mes calendario, con medición las 24 horas del día y mantenimiento incluido.
+\textbf{Problema.}
+«Siempre disponible» no define un período de medición ni cómo
+tratar las interrupciones.
 
-\textbf{Métrica y umbral.} La disponibilidad se calculará como
+\textbf{Redacción propuesta.}
+La plataforma permitirá iniciar sesión, consultar disponibilidad
+y confirmar reservas durante al menos el 99,5\,\% de cada mes
+calendario, con medición las 24 horas del día y mantenimiento incluido.
+
+\textbf{Métrica y umbral.}
+La disponibilidad se calculará como
+
 \[
 A=\frac{T-D}{T}\times100\geq99,5\,\%,
 \]
-donde $T$ es el tiempo total del mes y $D$ el tiempo de indisponibilidad, ambos en minutos. Para un mes de 30 días, el máximo será de 216 minutos de indisponibilidad.
 
-\textbf{Verificación.} Ejecutar cada minuto una transacción de prueba de inicio de sesión, consulta y reserva en una agenda separada. Contar el intervalo como indisponible si alguna operación falla o supera los 10 segundos. Resolver cualquier intervalo sin registros antes de calcular el resultado. El límite mensual no reemplaza la recuperación en menos de 30 minutos exigida en E19.
+donde $T$ es el tiempo total del mes y $D$ el tiempo de
+indisponibilidad, ambos en minutos. Para un mes de 30 días,
+el máximo será de 216 minutos de indisponibilidad.
+
+\textbf{Verificación.}
+Ejecutar cada minuto una transacción de prueba de inicio de sesión,
+consulta y reserva en una agenda separada. Contar el intervalo
+como indisponible si alguna operación falla o supera los 10 segundos.
+Resolver cualquier intervalo sin registros antes de calcular
+el resultado. El límite mensual no reemplaza la recuperación en
+menos de 30 minutos exigida en E19.
 
 \subsection{E18. Integración con facturación}
-\textbf{Problema.} «Sin problemas» no establece qué intercambio debe funcionar ni cómo comprobarlo.
 
-\textbf{Redacción propuesta.} En una prueba de 100 solicitudes válidas de registro de cobro, el sistema de facturación aceptará el 100\,\% y conservará sin diferencias el identificador de cita, el identificador de paciente y el importe. El 95\,\% de las aceptaciones se recibirá en un máximo de 5 segundos, con el servicio del proveedor disponible.
+\textbf{Problema.}
+«Sin problemas» no establece qué intercambio debe funcionar
+ni cómo comprobarlo.
 
-\textbf{Métrica y umbral.} Solicitudes aceptadas con datos correctos: 100 de 100. Percentil 95 del tiempo de aceptación $\leq 5$ segundos.
+\textbf{Redacción propuesta.}
+En una prueba de 100 solicitudes válidas de registro de cobro,
+el sistema de facturación aceptará el 100\,\% y conservará sin
+diferencias el identificador de cita, el identificador de paciente
+y el importe. El 95\,\% de las aceptaciones se recibirá en un máximo
+de 5 segundos, con el servicio del proveedor disponible.
 
-\textbf{Verificación.} Utilizar el entorno de prueba del proveedor y contrastar los mensajes con los registros de destino. Confirmar primero los campos y formatos que admite su interfaz documentada. Los errores, reintentos y duplicados necesitan pruebas adicionales. La emisión de facturas sigue fuera del alcance del proyecto.
+\textbf{Métrica y umbral.}
+Solicitudes aceptadas con datos correctos: 100 de 100.
+Percentil 95 del tiempo de aceptación $\leq 5$ segundos.
+
+\textbf{Verificación.}
+Utilizar el entorno de prueba del proveedor y contrastar los mensajes
+con los registros de destino. Confirmar primero los campos y formatos
+que admite su interfaz documentada. Los errores, reintentos y
+duplicados necesitan pruebas adicionales. La emisión de facturas
+sigue fuera del alcance del proyecto.
 
 \section{Propiedades de calidad de los enunciados}
-E03, E10 y E14 carecen de criterios verificables. E07 y E18 también son ambiguos porque admiten varias interpretaciones. Las reformulaciones anteriores establecen tareas, condiciones, métricas y umbrales para corregir estos problemas.
 
-No se identifica una inconsistencia demostrada entre esos cinco enunciados. Sin embargo, E14 debe interpretarse junto con E19. La recuperación después de una falla supone una interrupción que debe incluirse en el cálculo de disponibilidad.
+Femmer y colaboradores proponen detectar indicios de posibles
+defectos en la redacción de requisitos como apoyo a su
+revisión~\cite{femmer2017}. La presencia de uno de estos indicios
+requiere analizar el contexto, no descartar automáticamente
+el enunciado.
 
-En E09 también conviene precisar el límite de las cuatro horas. Se propone registrar como inasistencia una cancelación realizada antes del inicio de la cita cuando falten menos de cuatro horas. Si faltan exactamente cuatro horas, se registrará como cancelada. El tratamiento de cancelaciones posteriores al inicio debe acordarse por separado.
+En el caso del taller, E03, E10 y E14 carecen de criterios
+verificables. E07 y E18 también son ambiguos porque admiten varias
+interpretaciones. Las reformulaciones anteriores establecen tareas,
+condiciones, métricas y umbrales para corregir estos problemas.
+
+No se identifica una inconsistencia demostrada entre esos cinco
+enunciados. Sin embargo, E14 debe interpretarse junto con E19.
+La recuperación después de una falla supone una interrupción que
+debe incluirse en el cálculo de disponibilidad.
+
+En E09 también conviene precisar el límite de las cuatro horas.
+Se propone registrar como inasistencia una cancelación realizada
+antes del inicio de la cita cuando falten menos de cuatro horas.
+Si faltan exactamente cuatro horas, se registrará como cancelada.
+El tratamiento de cancelaciones posteriores al inicio debe
+acordarse por separado.
 
 \section{Comparación de criterios}
-Se revisó el fragmento del documento de Vaca Romero David Octavio compartido para esta actividad. La comparación se limita a los criterios visibles en ese fragmento, porque no se dispone de los archivos que contienen su matriz completa. No se ha realizado una discusión conjunta.
+
+Se revisó el fragmento del documento de Vaca Romero David Octavio
+compartido para esta actividad. La comparación se limita a los
+criterios visibles en ese fragmento, porque no se dispone de los
+archivos que contienen su matriz completa.
+No se ha realizado una discusión conjunta.
 
 \begin{description}
+
 \item[E02. Diferencia de alcance]
-El compañero considera software porque analiza la aplicación que emite el recordatorio. En este trabajo se considera sistema porque se incluye el servicio SMS. Se mantiene este criterio para evaluar el envío de extremo a extremo. Ambas clasificaciones necesitan declarar la frontera utilizada.
+El compañero considera software porque analiza la aplicación que
+emite el recordatorio. En este trabajo se considera sistema porque
+se incluye el servicio SMS. Se mantiene este criterio para evaluar
+el envío de extremo a extremo. Ambas clasificaciones necesitan
+declarar la frontera utilizada.
 
 \item[E09. Coincidencia de criterio]
-Los dos documentos lo consideran funcional porque exige registrar un estado. Su origen es una regla del dominio, lo que explica la condición de las cuatro horas.
+Los dos documentos lo consideran funcional porque exige registrar
+un estado. Su origen es una regla del dominio, lo que explica
+la condición de las cuatro horas.
 
 \item[Requisitos de proceso. Diferencia de interpretación]
-El fragmento del compañero interpreta sistema/software como ámbito de trabajo cuando se trata del proceso. Aquí se indica que no aplica directamente, porque el plazo, la validación de incrementos y la revisión de código regulan el desarrollo. Falta revisar sus filas para identificar diferencias en enunciados concretos.
+El fragmento del compañero interpreta sistema/software como ámbito
+de trabajo cuando se trata del proceso. Aquí se indica que no
+aplica directamente, porque el plazo, la validación de incrementos
+y la revisión de código regulan el desarrollo. Falta revisar sus
+filas para identificar diferencias en enunciados concretos.
+
 \end{description}
 
 \textbf{Pendiente de completar después de conversar con el compañero:}
+
 \begin{itemize}
-\item Fecha de la comparación y códigos discutidos.
-\item Argumentos adicionales de cada estudiante.
-\item Acuerdo alcanzado o diferencia que se mantiene, con su justificación.
+    \item Fecha de la comparación y códigos discutidos.
+    \item Argumentos adicionales de cada estudiante.
+    \item Acuerdo alcanzado o diferencia que se mantiene,
+    con su justificación.
 \end{itemize}
 
 \section{Uso de herramientas de apoyo}
-Se utilizó ChatGPT de OpenAI para apoyar la clasificación inicial, proponer métricas y preparar el archivo LaTeX. También se utilizó para comparar el fragmento compartido del compañero. No se dispone del identificador exacto del modelo. Se cotejaron los enunciados con la guía y se comprobó la compilación del documento. Las pruebas propuestas no se han ejecutado y los umbrales requieren validación. El estudiante debe revisar y poder explicar las decisiones antes de entregar el trabajo.
 
-\begin{thebibliography}{9}
-\bibitem{ireb} IREB, «CPRE Online Glossary», entradas «Functional requirement», «Quality requirement» y «Constraint (in RE)». [En línea]. Disponible: \url{https://cpre.ireb.org/en/downloads-and-resources/glossary}. Consulta: 7 nov. 2026.
-\bibitem{ieee} ISO/IEC/IEEE, \emph{Systems and software engineering --- Life cycle processes --- Requirements engineering}, ISO/IEC/IEEE 29148:2018, 2.ª ed., 2018. [En línea]. Disponible: \url{https://www.iso.org/standard/72089.html}.
-\bibitem{iso} ISO/IEC, \emph{Systems and software engineering --- Systems and software Quality Requirements and Evaluation (SQuaRE) --- Product quality model}, ISO/IEC 25010:2023, 2.ª ed., 2023. [En línea]. Disponible: \url{https://www.iso.org/standard/78176.html}.
-\bibitem{guia} G. C. Guerrero Ulloa, «FORM-TL-01. Taller de tipos de requisitos. Guía y rúbrica de evaluación y caso Plataforma de gestión de citas médicas», material docente, Ingeniería de Requerimientos, UTEQ, 2026.
-\end{thebibliography}
+Se utilizó ChatGPT de OpenAI para apoyar la clasificación inicial,
+proponer métricas y preparar el archivo LaTeX. También se utilizó
+para comparar el fragmento compartido del compañero.
+No se dispone del identificador exacto del modelo.
+
+Se cotejaron los enunciados con la guía y se comprobó la compilación
+del documento. Las pruebas propuestas no se han ejecutado y los
+umbrales requieren validación. El estudiante debe revisar y poder
+explicar las decisiones antes de entregar el trabajo.
+
+\bibliographystyle{IEEEtran}
+\bibliography{referencias}
 
 \clearpage
 \appendix
+
 \section{Enunciados originales}
-Los siguientes enunciados se transcriben de la guía proporcionada para el taller~\cite{guia}.
-\begin{description}[style=standard,leftmargin=1.15cm,labelwidth=0.95cm,itemsep=6pt]
-\item[E01] El paciente podrá reservar una cita eligiendo especialidad, médico, fecha y hora entre los horarios disponibles.
-\item[E02] La plataforma enviará al paciente un recordatorio por mensaje de texto 24 horas antes de su cita.
-\item[E03] La aplicación debe ser rápida.
-\item[E04] El recepcionista podrá registrar la llegada del paciente que se acerca a la ventanilla.
-\item[E05] La plataforma se desarrollará en Java 21 con base de datos PostgreSQL, tecnologías que domina el área de TI.
-\item[E06] El médico podrá consultar la lista de pacientes del día y marcar cada consulta como atendida.
-\item[E07] Los datos de salud de los pacientes deben estar seguros.
-\item[E08] La aplicación móvil debe funcionar en teléfonos con Android 10 o superior.
-\item[E09] Una cita cancelada con menos de cuatro horas de anticipación se registrará como inasistencia.
-\item[E10] La plataforma debe ser fácil de usar para los pacientes adultos mayores.
-\item[E11] El proyecto debe entregarse en un plazo máximo de seis meses.
-\item[E12] La sesión de un usuario se cerrará automáticamente tras 10 minutos sin actividad.
-\item[E13] El quiosco de la sala de espera leerá el número de cédula ingresado en su pantalla táctil e imprimirá un ticket con el número de turno.
-\item[E14] La plataforma debe estar siempre disponible.
-\item[E15] El director médico podrá generar un reporte mensual de inasistencias por especialidad.
-\item[E16] Cada incremento se validará con el director médico al final de cada iteración de dos semanas.
-\item[E17] El tratamiento de los datos personales de los pacientes debe cumplir la Ley Orgánica de Protección de Datos Personales del Ecuador.
-\item[E18] La plataforma debe integrarse sin problemas con el sistema de facturación actual.
-\item[E19] Si el servidor principal falla, la plataforma debe restablecer el servicio en menos de 30 minutos sin perder ninguna cita confirmada.
-\item[E20] Todo cambio en el código fuente será revisado por otro integrante del equipo antes de integrarse a la rama principal.
+
+Los siguientes enunciados se transcriben de la guía proporcionada
+para el taller~\cite{guia}.
+
+\begin{description}[
+    style=standard,
+    leftmargin=1.15cm,
+    labelwidth=0.95cm,
+    itemsep=6pt
+]
+
+\item[E01]
+El paciente podrá reservar una cita eligiendo especialidad,
+médico, fecha y hora entre los horarios disponibles.
+
+\item[E02]
+La plataforma enviará al paciente un recordatorio por mensaje
+de texto 24 horas antes de su cita.
+
+\item[E03]
+La aplicación debe ser rápida.
+
+\item[E04]
+El recepcionista podrá registrar la llegada del paciente que
+se acerca a la ventanilla.
+
+\item[E05]
+La plataforma se desarrollará en Java 21 con base de datos
+PostgreSQL, tecnologías que domina el área de TI.
+
+\item[E06]
+El médico podrá consultar la lista de pacientes del día y marcar
+cada consulta como atendida.
+
+\item[E07]
+Los datos de salud de los pacientes deben estar seguros.
+
+\item[E08]
+La aplicación móvil debe funcionar en teléfonos con
+Android 10 o superior.
+
+\item[E09]
+Una cita cancelada con menos de cuatro horas de anticipación
+se registrará como inasistencia.
+
+\item[E10]
+La plataforma debe ser fácil de usar para los pacientes adultos mayores.
+
+\item[E11]
+El proyecto debe entregarse en un plazo máximo de seis meses.
+
+\item[E12]
+La sesión de un usuario se cerrará automáticamente tras
+10 minutos sin actividad.
+
+\item[E13]
+El quiosco de la sala de espera leerá el número de cédula ingresado
+en su pantalla táctil e imprimirá un ticket con el número de turno.
+
+\item[E14]
+La plataforma debe estar siempre disponible.
+
+\item[E15]
+El director médico podrá generar un reporte mensual de inasistencias
+por especialidad.
+
+\item[E16]
+Cada incremento se validará con el director médico al final
+de cada iteración de dos semanas.
+
+\item[E17]
+El tratamiento de los datos personales de los pacientes debe cumplir
+la Ley Orgánica de Protección de Datos Personales del Ecuador.
+
+\item[E18]
+La plataforma debe integrarse sin problemas con el sistema
+de facturación actual.
+
+\item[E19]
+Si el servidor principal falla, la plataforma debe restablecer
+el servicio en menos de 30 minutos sin perder ninguna cita confirmada.
+
+\item[E20]
+Todo cambio en el código fuente será revisado por otro integrante
+del equipo antes de integrarse a la rama principal.
+
 \end{description}
+
 \end{document}
