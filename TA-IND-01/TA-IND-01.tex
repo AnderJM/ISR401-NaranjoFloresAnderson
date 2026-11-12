@@ -1,0 +1,176 @@
+% !TeX program = xelatex
+\documentclass[11pt,a4paper]{article}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage[spanish,provide=*]{babel}
+\usepackage[margin=2cm]{geometry}
+\usepackage{graphicx,booktabs,longtable,array,needspace,cite}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\LTleft}{\fill}
+\setlength{\LTright}{\fill}
+\setlength{\LTpre}{4pt}
+\setlength{\LTpost}{6pt}
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.07}
+\newcommand{\evidencia}[2]{%
+  \begin{minipage}[t]{.31\linewidth}
+    \centering
+    \includegraphics[width=\linewidth,height=5.5cm,keepaspectratio]{figuras/#1.png}\par
+    \small\textbf{#1.} #2
+  \end{minipage}}
+
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\begin{document}
+\begin{center}
+{\large\bfseries Universidad Técnica Estatal de Quevedo}\\
+Ingeniería de Requerimientos (ISR-401) · Cuarto nivel, paralelo A\\[6pt]
+{\Large\bfseries TA-IND-01}\\
+IEEE 29148 y tipos de requisitos de un sistema conocido\\[4pt]
+Anderson Jeampiere Naranjo Flores\\
+PhD. Gleiston Cicerón Guerrero Ulloa
+\end{center}
+\section{Sistema y alcance}
+Se estudia Instagram para Android desde la perspectiva de una persona que usa una cuenta personal. El alcance comprende preparar publicaciones fotográficas, buscar perfiles y gestionar la privacidad de la cuenta. Las capturas F01 a F03 documentan pantallas del cliente. Los enunciados y umbrales son propuestas académicas cuya aceptación está pendiente de prueba.
+\section{Resumen analítico}
+\subsection{Construcción de un requisito}
+La norma sitúa la ingeniería de requisitos dentro del ciclo de vida y establece procesos y productos de información para sistemas, software y servicios~\cite[cl. 1]{iso29148}. En este caso se parte de una necesidad concreta: revisar una foto antes de decidir si se publica. La vista previa responde a esa necesidad. El diseño del componente visual puede quedar abierto mientras permita cumplir la obligación.
+
+La cláusula 5.2.4 orienta la construcción del enunciado~\cite[cl. 5.2.4]{iso29148}. Para redactarlo conviene identificar la entidad obligada, el resultado exigido y las condiciones que delimitan cuándo aplica. Aquí la selección de la foto es la condición, el cliente Android es el sujeto y mostrar la imagen seleccionada es el resultado. La expresión «deberá» identifica la obligación. Añadir «antes de compartir» fija el momento en que se verifica la vista previa.
+
+El criterio de aceptación traduce la obligación en una observación que permite emitir un resultado. Para la vista previa se selecciona una imagen distinguible y se compara con la que aparece en pantalla. Para el ajuste de privacidad se puede verificar el valor después de volver a abrir la pantalla. Las dos pruebas requieren identificar el estado inicial y la acción que activa la obligación. Ferreira y colaboradores estudian cómo redactar criterios de aceptación que permitan verificar una necesidad de usuario~\cite{ferreira2022}. En esta matriz se aplica esa idea al indicar qué se debe observar en cada prueba.
+\subsection{Características individuales}
+La cláusula 5.2.5 permite evaluar cada enunciado~\cite[cl. 5.2.5]{iso29148}. Un requisito es \textbf{necesario} cuando responde a una necesidad del alcance, como controlar el acceso al contenido. Es \textbf{apropiado al nivel} cuando exige el resultado que corresponde al elemento especificado. Para el cliente es suficiente indicar el estado que debe conservarse y dejar abierta la forma de almacenarlo.
+
+Un requisito \textbf{inequívoco} tiene una interpretación clara. «Cuenta localizable» se concreta con una cuenta de prueba accesible y un nombre exacto. Un enunciado \textbf{completo} contiene las condiciones y resultados necesarios para entenderlo. Es \textbf{singular} si expresa una obligación. Mostrar el estado de privacidad y conservar un cambio pueden evaluarse por separado.
+La \textbf{factibilidad} se analiza frente a restricciones técnicas y recursos. Una meta de dos segundos requiere evaluar el dispositivo y la red donde se pretende alcanzar. Un requisito es \textbf{verificable} si se puede establecer si se cumple. Las búsquedas cronometradas permiten evaluar un límite de tiempo. Es \textbf{correcto} si refleja la necesidad que lo origina. Para el caso de privacidad interesa controlar el acceso a las publicaciones, por lo que el enunciado debe acotar el contenido protegido. Es \textbf{conforme} si sigue la plantilla o el estilo de especificación adoptado~\cite[cl. 5.2.5]{iso29148}.
+
+Una condición bien formulada puede seguir pendiente de verificación. Por ejemplo, una captura permite reconocer el ajuste de cuenta privada y sirve para orientar la prueba. Para evaluar el acceso a publicaciones se necesita una segunda cuenta cuyo permiso sea conocido. Veizaga y colaboradores estudian cómo detectar problemas de redacción, incluida la ambigüedad, y proponer correcciones en requisitos escritos en lenguaje natural~\cite{veizaga2024}. Estas propiedades se evalúan sobre la especificación. Los tiempos de respuesta o el acceso al contenido se evalúan sobre el producto.
+
+\subsection{Características del conjunto}
+La cláusula 5.2.6 traslada la revisión al conjunto de requisitos~\cite[cl. 5.2.6]{iso29148}. La \textbf{completitud} se evalúa respecto al alcance. La selección de una imagen, su cancelación y la vista previa son situaciones relacionadas que conviene cubrir. La \textbf{consistencia} exige evitar contradicciones y usar unidades y términos uniformes. Una cuenta puede aparecer en la búsqueda y tener publicaciones de acceso restringido. Ambos requisitos son compatibles porque se refieren a objetos distintos.
+
+La \textbf{factibilidad} del conjunto considera el efecto combinado de los requisitos y restricciones. Por ejemplo, conservar una imagen ante una interrupción de red puede consumir recursos y debe evaluarse junto con las metas de respuesta. La \textbf{comprensibilidad} se favorece agrupando obligaciones por flujo y manteniendo los nombres de las pantallas. La capacidad de \textbf{validación} depende de comprobar que el conjunto satisface las necesidades de uso dentro de las restricciones. Una revisión con una persona usuaria puede examinar si las pruebas elegidas representan su tarea. Las funciones fuera de los tres flujos quedan fuera del alcance de la revisión.
+
+\subsection{Lenguaje y atributos}
+La cláusula 5.2.7 orienta la precisión del lenguaje~\cite[cl. 5.2.7]{iso29148}. Las expresiones subjetivas, los superlativos y las referencias imprecisas dejan abierta la decisión sobre cumplimiento. «Rápido» omite un tiempo de respuesta. «Seguro» puede aludir a propiedades distintas. «Mostrar eso» deja incierto el objeto. En estos casos se debe identificar el objeto, acotar la condición y establecer un criterio evaluable. Estos ejemplos se redactaron para el caso.
+
+La cláusula 5.2.8 trata los atributos del requisito~\cite[cl. 5.2.8]{iso29148}. Un identificador permite conservar el vínculo entre la versión inicial, la propuesta corregida y su prueba. El estado distingue una obligación propuesta de una aprobada. Para los cinco requisitos de calidad se usa la clasificación del modelo de producto de ISO/IEC 25010:2023~\cite{iso25010}.
+\Needspace{10cm}
+\section{Glosario aplicado}
+Los términos corresponden a la cláusula 3.1~\cite{iso29148}. Los ejemplos son propios del ejercicio.
+{\small
+\begin{longtable}{@{}P{3cm}P{.39\linewidth}P{.39\linewidth}@{}}
+\toprule Término & Definición parafraseada & Ejemplo\\\midrule
+\endfirsthead
+\toprule Término & Definición parafraseada & Ejemplo\\\midrule
+\endhead
+\midrule\endfoot
+\bottomrule\endlastfoot
+Atributo (3.1.2) & Propiedad que se puede distinguir con una medida o descripción. & Duración de la búsqueda en segundos.\\[6pt]
+Línea base (3.1.3) & Versión aprobada y fijada en un momento del ciclo de vida. & Versión aprobada de la matriz para revisar cambios de privacidad.\\[6pt]
+Especificación de requisitos de negocio (3.1.4) & Registro organizado de necesidades del negocio y condiciones de solución. & Documento que define el propósito de compartir fotos con una audiencia elegida.\\[6pt]
+Concepto de operaciones (3.1.5) & Descripción general de cómo una organización prevé operar. & Propuesta de atención de incidencias en la preparación de publicaciones.\\[6pt]
+Condición (3.1.6) & Evento o circunstancia que determina cuándo aplica una obligación. & La persona ya seleccionó una foto antes de previsualizarla.\\[6pt]
+Restricción (3.1.7) & Límite impuesto a la solución o a su desarrollo. & Usar Android como plataforma del ejercicio.\\[6pt]
+Contexto de uso (3.1.8) & Personas, tareas, recursos y entorno en que se usa un producto. & Una persona busca una cuenta desde un teléfono conectado por Wi-Fi.\\[6pt]
+Cliente (3.1.9) & Persona u organización destinataria de un producto o servicio. & Una persona que usa el servicio para compartir fotos con sus contactos.\\[6pt]
+Requisito derivado (3.1.10) & Obligación inferida al organizar requisitos y definir una solución. & De revisar la foto antes de compartir se deriva mostrar una vista previa.\\[6pt]
+Desarrollador (3.1.11) & Persona u organización que realiza actividades de desarrollo. & Equipo que implementaría y probaría el filtro de perfiles.\\
+\end{longtable}}
+\Needspace{9\baselineskip}
+\section{Matriz de requisitos y criterios de aceptación}
+Se formulan cinco tipos. Los códigos F01 a F03 identifican las capturas que motivan cada flujo. Las interfaces, la restricción de plataforma y el proceso son propuestas del ejercicio. Para las pruebas se registrarán versión del cliente, versión de Android, dispositivo y red.
+{\small
+\begin{longtable}{@{}P{2.9cm}P{.39\linewidth}P{.39\linewidth}@{}}
+\toprule ID y tipo & Versión corregida & Métrica o criterio de aceptación\\\midrule
+\endfirsthead
+\toprule ID y tipo & Versión corregida & Métrica o criterio de aceptación\\\midrule
+\endhead
+\midrule\endfoot
+\bottomrule\endlastfoot
+RF-01\par Funcional & Al seleccionar una foto para una publicación, el cliente deberá mostrarla en la vista previa antes de compartir. & Seleccionar una imagen distinguible y comprobar que es la que se muestra. F01.\\[5pt]
+RF-02\par Funcional & Antes de compartir una foto, el cliente deberá permitir escribir un pie de foto. & Escribir un texto de prueba y comprobar que aparece en el campo. F01.\\[5pt]
+RF-03\par Funcional & Al buscar el nombre exacto de una cuenta pública de prueba accesible, el cliente deberá incluirla en los resultados. & Buscar el nombre y abrir el resultado para comprobar el perfil. F02.\\[5pt]
+RF-04\par Funcional & Al seleccionar Cuentas tras una búsqueda, el cliente deberá mostrar resultados de perfiles asociados a la consulta. & Activar Cuentas y comprobar que se muestran perfiles correspondientes a la consulta de prueba. F02.\\[5pt]
+RF-05\par Funcional & Al abrir Privacidad de la cuenta, el cliente deberá indicar el estado vigente de Cuenta privada. & Abrir el ajuste con una cuenta de estado conocido y comparar el interruptor. F03.\\[5pt]
+RF-06\par Funcional & Tras confirmar un cambio de privacidad, el cliente deberá mostrar el nuevo estado al volver a abrir el ajuste. & Cambiar el estado en una cuenta de prueba y comprobarlo al reabrir. F03.\\[5pt]
+I01\par Interfaz externa & Al autorizar un archivo JPEG en el selector de medios de Android, el cliente deberá recibir la imagen elegida. & Seleccionar un JPEG de prueba y comprobar que el cliente recibe esa imagen. Flujo F01.\\[5pt]
+I02\par Interfaz externa & Si el selector de medios de Android devuelve una cancelación, el cliente deberá regresar al flujo sin añadir una imagen. & Cancelar el selector sin elegir un archivo y comprobar que no aparece una foto nueva. Flujo F01.\\[5pt]
+R01\par Restricción & El cliente móvil considerado en la especificación deberá ejecutarse en Android. & Verificar la plataforma de ejecución en el dispositivo registrado.\\[5pt]
+P01\par Proceso & Antes de aprobar la matriz, la persona responsable deberá registrar el resultado de los casos RF-01 a RF-06. & Inspeccionar el registro y comprobar que contiene fecha, versión y resultado de cada caso.\\[5pt]
+\end{longtable}}
+
+\Needspace{9\baselineskip}
+\subsection{Requisitos de calidad}
+La característica y subcaracterística corresponden a ISO/IEC 25010:2023~\cite{iso25010}. Se usarán fotos y cuentas de prueba. Los umbrales son metas de aceptación propuestas. Q01 adapta al caso la idea de medir el tiempo de respuesta de un servicio móvil con un procedimiento explícito~\cite{inupakutika2022}. Q02 y Q03 distinguen el acceso efectivo al contenido de la facilidad de encontrar y usar el ajuste. Esta distinción se apoya en estudios de configuración de privacidad en Instagram y otras redes sociales~\cite{zhao2022,charnsethikul2025}.
+{\small
+\begin{longtable}{@{}P{3.25cm}P{.39\linewidth}P{.37\linewidth}@{}}
+\toprule ID y tipo & Versión corregida & Métrica o criterio de aceptación\\\midrule
+\endfirsthead
+\toprule ID y tipo & Versión corregida & Métrica o criterio de aceptación\\\midrule
+\endhead
+\midrule\endfoot
+\bottomrule\endlastfoot
+Q01\par Calidad. Eficiencia de desempeño / comportamiento temporal & Con sesión iniciada y Wi-Fi estable, el cliente deberá mostrar el perfil en 2 s o menos en al menos 19 de 20 búsquedas por nombre exacto de cuentas de prueba accesibles. & Medir desde enviar la consulta hasta ver el perfil. Aceptar 19 de 20 en 2 s o menos. Una ausencia cuenta como fallo. F02.\\[5pt]
+Q02\par Calidad. Seguridad / confidencialidad & En 10 intentos desde una cuenta sin seguimiento aprobado, el cliente deberá impedir visualizar la foto y el pie de una publicación del perfil privado de prueba. & Aceptar 0 exposiciones de foto o pie en 10 intentos. Confirmar primero que el titular sí ve el contenido. F03.\\[5pt]
+Q03\par Calidad. Capacidad de interacción / operabilidad & Desde Privacidad de la cuenta, el titular deberá poder aplicar el cambio de Cuenta privada con un máximo de tres pulsaciones. & Contar desde el primer toque en el interruptor. Aceptar si los cinco cambios de prueba requieren como máximo tres pulsaciones cada uno. F03.\\[5pt]
+Q04\par Calidad. Fiabilidad / recuperabilidad & Tras interrumpir la red por 30 s durante la vista previa y restablecerla sin cerrar la aplicación, el cliente deberá conservar la foto seleccionada en al menos 9 de 10 ensayos. & Interrumpir y restablecer la red antes de compartir. Aceptar si la foto permanece en la vista previa en al menos 9 de 10 ensayos. F01.\\[5pt]
+Q05\par Calidad. Adecuación funcional / corrección funcional & Para diez fotos JPEG distinguibles, el cliente deberá mostrar en cada vista previa la foto seleccionada. & Aceptar 10 de 10 coincidencias entre archivo y vista previa. Identificar la foto por contenido visible. F01.\\[5pt]
+\end{longtable}}
+
+\Needspace{8\baselineskip}
+\section{Autoevaluación}
+Cada ID remite a la versión corregida completa de la sección 4. Se revisan necesidad (N), nivel (L), claridad (A), completitud (M), singularidad (S), factibilidad (F), verificabilidad (V), corrección (C), conformidad (T) y lenguaje (G)~\cite[cls. 5.2.5 y 5.2.7]{iso29148}. La última columna señala los criterios que motivaron el cambio. La factibilidad y la adecuación de las metas quedan por confirmar.
+{\small
+\begin{longtable}{@{}P{1.4cm}P{4.6cm}P{.60\linewidth}@{}}
+\toprule ID & Versión inicial & Problema y ajuste aplicado\\\midrule
+\endfirsthead
+\toprule ID & Versión inicial & Problema y ajuste aplicado\\\midrule
+\endhead
+\midrule\endfoot
+\bottomrule\endlastfoot
+RF-01 & Mostrar bien la foto. & A, V, G. Precisar objeto y momento.\\[5pt]
+RF-02 & Agregar texto y compartir. & S, M. Acotar la obligación al campo.\\[5pt]
+RF-03 & Buscar cualquier perfil. & N, M, C. Precisar cuenta y entrada.\\[5pt]
+RF-04 & Filtrar todo según haga falta. & A, M, G. Fijar pestaña y resultado.\\[5pt]
+RF-05 & Informar si es privada. & A, L. Nombrar estado y pantalla.\\[5pt]
+RF-06 & Cambiar y guardar siempre. & M, V, G. Definir confirmación y reapertura.\\[5pt]
+I01 & Usar las fotos del teléfono. & L, M. Identificar entrada y origen.\\[5pt]
+I02 & Volver cuando no haya foto. & C, A. Precisar el evento de cancelación.\\[5pt]
+R01 & Usar un equipo compatible. & T, V, G. Fijar la plataforma.\\[5pt]
+P01 & Probar antes de entregar. & M, T. Precisar responsable, momento y casos.\\[5pt]
+Q01 & Buscar muy rápido. & V, F, G. Fijar métrica, umbral y entorno.\\[5pt]
+Q02 & Las cuentas privadas serán seguras. & M, V, G. Identificar actor y contenido.\\[5pt]
+Q03 & Cambiar privacidad fácilmente. & A, V, G. Fijar pantalla y pulsaciones.\\[5pt]
+Q04 & Recuperarse de cualquier fallo. & F, M, G. Delimitar incidente y estado.\\[5pt]
+Q05 & Mostrar correctamente la foto. & C, V. Fijar entradas y coincidencias.\\[5pt]
+
+\end{longtable}}
+En conjunto, RF-01 se refiere a la vista previa, I01 al intercambio con Android y Q05 a la exactitud con un conjunto de entradas. RF-06 comprueba el estado del ajuste y Q02 el acceso al contenido desde otra cuenta. La revisión del conjunto también debe comprobar que las condiciones y los roles de prueba se mantengan consistentes.
+\Needspace{10cm}
+\section{Evidencias y reflexión}
+\noindent
+\begin{minipage}{\linewidth}
+\centering
+\evidencia{F01}{Publicación}\hfill
+\evidencia{F02}{Búsqueda}\hfill
+\evidencia{F03}{Privacidad}\par
+\small Figura 1. Capturas de Instagram para Android.
+\end{minipage}
+F01 muestra la vista previa y el campo del pie. F02 muestra la pestaña Cuentas y el grupo de resultados bajo Para ti. F03 muestra el control de privacidad. Las pruebas de coincidencia, filtrado, persistencia y acceso desde otra cuenta quedan pendientes.
+
+\Needspace{13\baselineskip}
+\subsection{Reflexión técnica para revisión personal}
+El reto al formular requisitos de calidad es delimitar qué se mide y en qué circunstancias. En una búsqueda, medir desde la primera tecla incluiría el tiempo de escritura. Medir desde el envío de la consulta hasta que aparezca el perfil permite evaluar la respuesta del cliente. También es necesario definir qué ocurre cuando el perfil no aparece. Contarlo como fallo conserva el vínculo entre el tiempo medido y el objetivo de la tarea.
+
+En privacidad, el interruptor permite identificar el ajuste. Para verificar el acceso al contenido se requiere una segunda cuenta con un estado de seguimiento conocido. Esa distinción permite diseñar una prueba observable y evitar que una captura se use como resultado de una evaluación todavía pendiente. Para defender los umbrales propuestos se necesitaría ejecutar las pruebas, anotar las condiciones del dispositivo y revisar los resultados.
+
+\Needspace{6\baselineskip}
+\subsection{Declaración de apoyo}
+Se utilizó ChatGPT de OpenAI para organizar el borrador, proponer requisitos y preparar el código LaTeX. El estudiante aportó las capturas. Quedan pendientes la lectura personal de las cláusulas, la revisión de la reflexión y las pruebas propuestas.
+
+\bibliographystyle{ieeetr}
+\bibliography{referencias}
+\end{document}
