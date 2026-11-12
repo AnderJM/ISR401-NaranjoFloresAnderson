@@ -17,7 +17,7 @@
 \newcommand{\evidencia}[2]{%
   \begin{minipage}[t]{.31\linewidth}
     \centering
-    \includegraphics[width=\linewidth,height=5.5cm,keepaspectratio]{figuras/#1.png}\par
+    \includegraphics[width=\linewidth,height=5.5cm,keepaspectratio]{figuras/#1}\par
     \small\textbf{#1.} #2
   \end{minipage}}
 
@@ -57,6 +57,10 @@ La \textbf{factibilidad} del conjunto considera el efecto combinado de los requi
 La cláusula 5.2.7 orienta la precisión del lenguaje~\cite[cl. 5.2.7]{iso29148}. Las expresiones subjetivas, los superlativos y las referencias imprecisas dejan abierta la decisión sobre cumplimiento. «Rápido» omite un tiempo de respuesta. «Seguro» puede aludir a propiedades distintas. «Mostrar eso» deja incierto el objeto. En estos casos se debe identificar el objeto, acotar la condición y establecer un criterio evaluable. Estos ejemplos se redactaron para el caso.
 
 La cláusula 5.2.8 trata los atributos del requisito~\cite[cl. 5.2.8]{iso29148}. Un identificador permite conservar el vínculo entre la versión inicial, la propuesta corregida y su prueba. El estado distingue una obligación propuesta de una aprobada. Para los cinco requisitos de calidad se usa la clasificación del modelo de producto de ISO/IEC 25010:2023~\cite{iso25010}.
+La revisión del lenguaje también ayuda a elegir qué parte de una frase convertir en una obligación. Por ejemplo, «mostrar rápidamente el perfil correcto y facilitar la búsqueda» combina el resultado, el tiempo de respuesta y una intención de facilidad de uso. La identificación del perfil se comprueba con una cuenta de nombre conocido. La latencia requiere fijar el inicio y el fin de la medición, además de registrar el entorno. La facilidad de uso exige identificar otra tarea y un criterio propio. Separar estas condiciones permite saber qué debe corregirse cuando solo una de las pruebas falla~\cite[cls. 5.2.5 y 5.2.7]{iso29148}.
+
+También conviene distinguir consistencia de factibilidad. Dos requisitos son consistentes si se pueden satisfacer simultáneamente según sus enunciados. Por ejemplo, buscar un perfil y restringir el contenido de sus publicaciones son condiciones compatibles cuando se indica qué información corresponde a cada operación. Evaluar la factibilidad de esas condiciones exige conocer el dispositivo, los permisos y la configuración disponible. A su vez, la validación del conjunto requiere preguntar si los resultados cubren la necesidad de uso. Una prueba puede verificar que un interruptor cambió y dejar abierta la pregunta de si la persona logró controlar el acceso de la audiencia prevista~\cite[cl. 5.2.6]{iso29148}.
+
 \Needspace{10cm}
 \section{Glosario aplicado}
 Los términos corresponden a la cláusula 3.1~\cite{iso29148}. Los ejemplos son propios del ejercicio.
@@ -120,33 +124,59 @@ Q04\par Calidad. Fiabilidad / recuperabilidad & Tras interrumpir la red por 30 s
 Q05\par Calidad. Adecuación funcional / corrección funcional & Para diez fotos JPEG distinguibles, el cliente deberá mostrar en cada vista previa la foto seleccionada. & Aceptar 10 de 10 coincidencias entre archivo y vista previa. Identificar la foto por contenido visible. F01.\\[5pt]
 \end{longtable}}
 
-\Needspace{8\baselineskip}
+\Needspace{16\baselineskip}
 \section{Autoevaluación}
-Cada ID remite a la versión corregida completa de la sección 4. Se revisan necesidad (N), nivel (L), claridad (A), completitud (M), singularidad (S), factibilidad (F), verificabilidad (V), corrección (C), conformidad (T) y lenguaje (G)~\cite[cls. 5.2.5 y 5.2.7]{iso29148}. La última columna señala los criterios que motivaron el cambio. La factibilidad y la adecuación de las metas quedan por confirmar.
+La tabla muestra la versión inicial, el ajuste y la versión corregida. Los ID coinciden con la sección 4. Se revisan necesidad (N), nivel (L), claridad (A), completitud (M), singularidad (S), factibilidad (F), verificabilidad (V), corrección (C), conformidad (T) y lenguaje (G)~\cite[cls. 5.2.5 y 5.2.7]{iso29148}. La última columna señala los criterios que motivaron el cambio. La factibilidad y la adecuación de las metas quedan por confirmar.
 {\small
-\begin{longtable}{@{}P{1.4cm}P{4.6cm}P{.60\linewidth}@{}}
-\toprule ID & Versión inicial & Problema y ajuste aplicado\\\midrule
+\begin{longtable}{@{}P{1.35cm}P{.19\linewidth}P{.23\linewidth}P{.42\linewidth}@{}}
+\toprule ID & Versión inicial & Problema y ajuste & Versión corregida\\\midrule
 \endfirsthead
-\toprule ID & Versión inicial & Problema y ajuste aplicado\\\midrule
+\toprule ID & Versión inicial & Problema y ajuste & Versión corregida\\\midrule
 \endhead
 \midrule\endfoot
 \bottomrule\endlastfoot
-RF-01 & Mostrar bien la foto. & A, V, G. Precisar objeto y momento.\\[5pt]
-RF-02 & Agregar texto y compartir. & S, M. Acotar la obligación al campo.\\[5pt]
-RF-03 & Buscar cualquier perfil. & N, M, C. Precisar cuenta y entrada.\\[5pt]
-RF-04 & Filtrar todo según haga falta. & A, M, G. Fijar pestaña y resultado.\\[5pt]
-RF-05 & Informar si es privada. & A, L. Nombrar estado y pantalla.\\[5pt]
-RF-06 & Cambiar y guardar siempre. & M, V, G. Definir confirmación y reapertura.\\[5pt]
-I01 & Usar las fotos del teléfono. & L, M. Identificar entrada y origen.\\[5pt]
-I02 & Volver cuando no haya foto. & C, A. Precisar el evento de cancelación.\\[5pt]
-R01 & Usar un equipo compatible. & T, V, G. Fijar la plataforma.\\[5pt]
-P01 & Probar antes de entregar. & M, T. Precisar responsable, momento y casos.\\[5pt]
-Q01 & Buscar muy rápido. & V, F, G. Fijar métrica, umbral y entorno.\\[5pt]
-Q02 & Las cuentas privadas serán seguras. & M, V, G. Identificar actor y contenido.\\[5pt]
-Q03 & Cambiar privacidad fácilmente. & A, V, G. Fijar pantalla y pulsaciones.\\[5pt]
-Q04 & Recuperarse de cualquier fallo. & F, M, G. Delimitar incidente y estado.\\[5pt]
-Q05 & Mostrar correctamente la foto. & C, V. Fijar entradas y coincidencias.\\[5pt]
-
+RF-01 & Mostrar bien la foto. & A, V, G. Precisar objeto y momento. & Al seleccionar una foto para una publicación, el cliente deberá mostrarla en la vista previa antes de compartir.\\[4pt]
+RF-02 & Agregar texto y compartir. & S, M. Acotar la obligación al campo. & Antes de compartir una foto, el cliente deberá permitir escribir un pie de foto.\\[4pt]
+RF-03 & Buscar cualquier perfil. & N, M, C. Precisar cuenta y entrada. & Al buscar el nombre exacto de una cuenta pública de prueba accesible, el cliente deberá incluirla en los resultados.\\[4pt]
+RF-04 & Filtrar todo según haga falta. & A, M, G. Fijar pestaña y resultado. & Al seleccionar Cuentas tras una búsqueda, el cliente deberá mostrar resultados de perfiles asociados a la consulta.\\[4pt]
+RF-05 & Informar si es privada. & A, L. Nombrar estado y pantalla. & Al abrir Privacidad de la cuenta, el cliente deberá indicar el estado vigente de Cuenta privada.\\[4pt]
+RF-06 & Cambiar y guardar siempre. & M, V, G. Definir confirmación y reapertura. & Tras confirmar un cambio de privacidad, el cliente deberá mostrar el nuevo estado al volver a abrir el ajuste.\\[4pt]
+I01 & Usar las fotos del teléfono. & L, M. Identificar entrada y origen. & Al autorizar un archivo JPEG en el selector de medios de Android, el cliente deberá recibir la imagen elegida.\\[4pt]
+I02 & Volver cuando no haya foto. & C, A. Precisar el evento de cancelación. & Si el selector de medios de Android devuelve una cancelación, el cliente deberá regresar al flujo sin añadir una imagen.\\[4pt]
+R01 & Usar un equipo compatible. & T, V, G. Fijar la plataforma. & El cliente móvil considerado en la especificación deberá ejecutarse en Android.\\[4pt]
+P01 & Probar antes de entregar. & M, T. Precisar responsable, momento y casos. & Antes de aprobar la matriz, la persona responsable deberá registrar el resultado de los casos RF-01 a RF-06.\\[4pt]
+Q01 & Buscar muy rápido. & V, F, G. Fijar métrica, umbral y entorno. & Con sesión iniciada y Wi-Fi estable, el cliente deberá mostrar el perfil en 2 s o menos en al menos 19 de 20 búsquedas por nombre exacto de cuentas de prueba accesibles.\\[4pt]
+Q02 & Las cuentas privadas serán seguras. & M, V, G. Identificar actor y contenido. & En 10 intentos desde una cuenta sin seguimiento aprobado, el cliente deberá impedir visualizar la foto y el pie de una publicación del perfil privado de prueba.\\[4pt]
+Q03 & Cambiar privacidad fácilmente. & A, V, G. Fijar pantalla y pulsaciones. & Desde Privacidad de la cuenta, el titular deberá poder aplicar el cambio de Cuenta privada con un máximo de tres pulsaciones.\\[4pt]
+Q04 & Recuperarse de cualquier fallo. & F, M, G. Delimitar incidente y estado. & Tras interrumpir la red por 30 s durante la vista previa y restablecerla sin cerrar la aplicación, el cliente deberá conservar la foto seleccionada en al menos 9 de 10 ensayos.\\[4pt]
+Q05 & Mostrar correctamente la foto. & C, V. Fijar entradas y coincidencias. & Para diez fotos JPEG distinguibles, el cliente deberá mostrar en cada vista previa la foto seleccionada.\\[4pt]
+\end{longtable}}
+\Needspace{10\baselineskip}
+\subsection{Comprobación de la versión corregida}
+D indica que la revisión documental respalda el criterio dentro del alcance del caso. P indica que queda pendiente una prueba o confirmación. F se evalúa como factibilidad y C como correspondencia con la necesidad. La marca D en V indica que existe un criterio de aceptación comprobable. Los resultados de ejecución se registrarán por separado.
+{\small
+\begin{longtable}{@{}l*{10}{c}@{}}
+\toprule ID & N & L & A & M & S & F & V & C & T & G\\\midrule
+\endfirsthead
+\toprule ID & N & L & A & M & S & F & V & C & T & G\\\midrule
+\endhead
+\midrule\endfoot
+\bottomrule\endlastfoot
+RF-01 & D & D & D & D & D & D & D & D & D & D\\
+RF-02 & D & D & D & D & D & D & D & D & D & D\\
+RF-03 & D & D & D & D & D & P & D & D & D & D\\
+RF-04 & D & D & D & D & D & P & D & D & D & D\\
+RF-05 & D & D & D & D & D & D & D & D & D & D\\
+RF-06 & D & D & D & D & D & P & D & D & D & D\\
+I01 & D & D & D & D & D & P & D & P & D & D\\
+I02 & D & D & D & D & D & P & D & P & D & D\\
+R01 & D & D & D & D & D & D & D & D & D & D\\
+P01 & D & D & D & D & D & P & D & P & D & D\\
+Q01 & D & D & D & D & D & P & D & P & D & D\\
+Q02 & D & D & D & D & D & P & D & P & D & D\\
+Q03 & D & D & D & D & D & P & D & P & D & D\\
+Q04 & D & D & D & D & D & P & D & P & D & D\\
+Q05 & D & D & D & D & D & P & D & P & D & D\\
 \end{longtable}}
 En conjunto, RF-01 se refiere a la vista previa, I01 al intercambio con Android y Q05 a la exactitud con un conjunto de entradas. RF-06 comprueba el estado del ajuste y Q02 el acceso al contenido desde otra cuenta. La revisión del conjunto también debe comprobar que las condiciones y los roles de prueba se mantengan consistentes.
 \Needspace{10cm}
@@ -159,7 +189,7 @@ En conjunto, RF-01 se refiere a la vista previa, I01 al intercambio con Android 
 \evidencia{F03}{Privacidad}\par
 \small Figura 1. Capturas de Instagram para Android.
 \end{minipage}
-F01 muestra la vista previa y el campo del pie. F02 muestra la pestaña Cuentas y el grupo de resultados bajo Para ti. F03 muestra el control de privacidad. Las pruebas de coincidencia, filtrado, persistencia y acceso desde otra cuenta quedan pendientes.
+F01 muestra la vista previa y el campo del pie. F02 muestra la pestaña Cuentas y el encabezado de resultados bajo Para ti. Se ocultaron los datos de terceros. F03 muestra el control de privacidad. Las pruebas de coincidencia, filtrado, persistencia y acceso desde otra cuenta quedan pendientes.
 
 \Needspace{13\baselineskip}
 \subsection{Reflexión técnica para revisión personal}
@@ -169,7 +199,7 @@ En privacidad, el interruptor permite identificar el ajuste. Para verificar el a
 
 \Needspace{6\baselineskip}
 \subsection{Declaración de apoyo}
-Se utilizó ChatGPT de OpenAI para organizar el borrador, proponer requisitos y preparar el código LaTeX. El estudiante aportó las capturas. Quedan pendientes la lectura personal de las cláusulas, la revisión de la reflexión y las pruebas propuestas.
+Se utilizó ChatGPT de OpenAI para organizar el borrador, proponer requisitos y preparar el código LaTeX. La versión exacta del modelo no quedó registrada. El estudiante aportó las capturas. Se verificaron la compilación, las citas y la correspondencia entre las figuras y el alcance. Las pruebas propuestas siguen pendientes.
 
 \bibliographystyle{ieeetr}
 \bibliography{referencias}
