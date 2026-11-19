@@ -15,6 +15,9 @@ En este repositorio se publicarán las **tareas individuales de Ingeniería de R
 2. **[TA-IND-01 — IEEE 29148 y tipos de requisitos de un sistema conocido](./TA-IND-01/)**  
    Trabajo individual sobre Instagram para Android. Incluye un resumen analítico de ISO/IEC/IEEE 29148:2018, un glosario de diez términos, 15 requisitos de cinco tipos, criterios de aceptación, una autoevaluación y tres capturas propias. Cinco requisitos de calidad se clasifican según ISO/IEC 25010:2023 e incluyen métricas y umbrales propuestos.
 
+3. **[EV-PRAC-01 — Evaluación práctica de la Unidad I, caso FRÍOVAC](./EV-PRAC-01/)**  
+   Digitalización de los apartados T1(a), T1(b) y T2(a) de la prueba escrita. El anexo incluye las dos fotografías de las hojas de respuesta. [Descargar el PDF](./EV-PRAC-01/main.pdf?raw=true).
+
 ## Estructura del repositorio
 
 ```text
@@ -26,18 +29,26 @@ En este repositorio se publicarán las **tareas individuales de Ingeniería de R
 │   ├── main.pdf
 │   ├── portada_sga.tex
 │   └── portada_sga.pdf
-└── TA-IND-01/
-    ├── README.md
+├── TA-IND-01/
+│   ├── README.md
+│   ├── main.tex
+│   ├── referencias.bib
+│   ├── main.pdf
+│   └── figuras/
+│       ├── F01.png
+│       ├── F02.png
+│       └── F03.png
+└── EV-PRAC-01/
     ├── main.tex
-    ├── referencias.bib
     ├── main.pdf
-    └── figuras/
-        ├── F01.png
-        ├── F02.png
-        └── F03.png
+    └── evidencias/
+        ├── hoja-01.jpg
+        └── hoja-02.jpg
 ```
 
 ## Compilación
+
+### FRM-TL-01 y TA-IND-01
 
 Se requiere **XeLaTeX**, **BibTeX** y la fuente **Latin Modern Roman**. Cada informe carga su propia bibliografía. La formativa usa `IEEEtran.bst` y el trabajo individual usa `ieeetr.bst`.
 
@@ -52,6 +63,20 @@ xelatex -interaction=nonstopmode -halt-on-error main.tex
 ```
 
 Para compilar la formativa, usa `cd FRM-TL-01` desde la raíz. En ambos casos, el resultado es `main.pdf` dentro de la carpeta de la actividad.
+
+### EV-PRAC-01
+
+El archivo principal es `EV-PRAC-01/main.tex`. Requiere **XeLaTeX**, la fuente **Latin Modern Roman**, los paquetes `babel`, `geometry`, `graphicx` y `longtable`, y las fotografías `hoja-01.jpg` y `hoja-02.jpg` dentro de `EV-PRAC-01/evidencias/`.
+
+Desde la raíz del repositorio, ejecuta:
+
+```bash
+cd EV-PRAC-01
+xelatex -interaction=nonstopmode -halt-on-error main.tex
+xelatex -interaction=nonstopmode -halt-on-error main.tex
+```
+
+El resultado es `EV-PRAC-01/main.pdf`, con una fotografía por página al final del documento.
 
 ## Entrega en el SGA
 
