@@ -1,0 +1,99 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[provide=*,spanish]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{longtable}
+
+% Confirma la fecha de la prueba y ajusta el número total de fotos.
+\newcommand{\fechaprueba}{18 de noviembre de 2026}
+\newcommand{\totalhojas}{2}
+
+\begin{document}
+
+\begin{center}
+  {\Large\bfseries EV-PRAC-01 · Caso FRÍOVAC\par}
+  \medskip
+  Anderson Jeampiere Naranjo Flores\par
+  Ingeniería de Requerimientos (ISR-401) · 4.º nivel, paralelo A
+\end{center}
+
+\noindent
+Esta es la transcripción fiel de la prueba escrita a mano el
+\fechaprueba{}; las fotografías de las hojas están en el anexo.
+
+\subsection*{T1(a) Qué es un requisito}
+
+Según ISO/IEC/IEEE 29148, un requisito es un enunciado que expresa una necesidad y sus restricciones y condiciones asociadas, sobre lo que el producto debe hacer o cumplir, y que se puede verificar.
+
+\noindent E7 — No es requisito. Describe cómo se trabaja hoy (lectura manual en papel); no expresa una necesidad que FRÍOVAC deba cumplir. Es información de contexto obtenida en la elicitación.
+
+\noindent E12 — No es requisito del producto. Dice cómo se hará el proyecto (entrevistas por videollamada, firma del acta): es un requisito de proceso y va en el plan del proyecto, no en el producto.
+
+\subsection*{T1(b) StRS, SyRS y SRS en FRÍOVAC}
+
+\begingroup
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{longtable}{@{}p{.15\linewidth}p{.33\linewidth}p{.10\linewidth}p{.35\linewidth}@{}}
+\hline
+\textbf{Documento} & \textbf{Qué describe} & \textbf{Ejemplo} & \textbf{Por qué} \\
+\hline
+\endhead
+StRS & Necesidades de los interesados (directora, coordinadora, responsables) en su lenguaje de negocio. & E1 & Es una necesidad de la coordinadora, expresada con sus palabras, aún sin valores técnicos. \\
+SyRS & Requisitos del sistema completo: sensor TL-40 + red celular + servidor + web + app. & E6 & Seguir registrando durante cortes involucra hardware (batería del sensor) y software, no solo el software. \\
+SRS & Requisitos solo del software (plataforma web y app móvil). & E5 & Generar el informe PDF lo hace únicamente el software. \\
+\hline
+\end{longtable}
+\endgroup
+
+\subsection*{T2(a) Clasificación de E1 a E12}
+
+\begingroup
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{longtable}{@{}p{.07\linewidth}p{.27\linewidth}p{.20\linewidth}p{.39\linewidth}@{}}
+\hline
+\textbf{ID} & \textbf{Tipo} & \textbf{Documento} & \textbf{Justificación} \\
+\hline
+\endhead
+E1 & Funcional (necesidad de alerta) & StRS & Necesidad del interesado en su lenguaje; «de inmediato» se cuantifica después (B6). \\
+E2 & Requisito de dominio & SyRS & Viene de la norma técnica de inmunizaciones y condiciona todo el sistema. \\
+E3 & Restricción (interfaz) — compatibilidad & SyRS & El sensor ya está comprado: impone MQTT y una lectura cada 10 min. \\
+E4 & Restricción de proyecto (plazo y costo) & StRS (y plan del proyecto) & Límite de negocio: 30/06/2027 y USD 48\,000; no describe una función. \\
+E5 & Funcional & SRS & Acción concreta del software: generar el informe mensual en PDF. \\
+E6 & No funcional — fiabilidad & SyRS & Tolerancia a fallos ante cortes de hasta 8 h; involucra hardware y software. \\
+E7 & No es requisito & Ninguno: informe de elicitación (situación actual) & Describe el proceso manual de hoy. \\
+E8 & No funcional — eficiencia de desempeño & SRS & Tiempo de respuesta \(< 3\) s con 50 usuarios simultáneos. \\
+E9 & Restricción (entorno de implantación) & SyRS & Obliga a usar el servidor del distrito con Linux. \\
+E10 & No funcional — seguridad & SRS & Control de acceso y responsabilidad: cada registro ligado a su usuario. \\
+E11 & No funcional — capacidad de interacción & SRS & Aprendibilidad: \(\leq 2\) min en el primer intento. \\
+E12 & Requisito de proceso & Ninguno: plan del proyecto & Dice cómo se hace la IR, no qué hace el producto. \\
+\hline
+\end{longtable}
+\endgroup
+
+\clearpage
+\appendix
+\section*{Anexo. Fotografías de la prueba}
+
+\newcount\numerodehoja
+\numerodehoja=1
+\loop
+  \edef\archivohoja{evidencias/hoja-\ifnum\numerodehoja<10 0\fi\number\numerodehoja.jpg}
+  \noindent\textbf{Hoja \number\numerodehoja{} de \totalhojas}\par
+  \begin{center}
+    \IfFileExists{\archivohoja}{%
+      \includegraphics[width=\linewidth,height=.78\textheight,keepaspectratio]{\archivohoja}%
+    }{%
+      \fbox{Falta la fotografía \number\numerodehoja.}%
+      \PackageWarningNoLine{EV-PRAC-01}{Falta \archivohoja}%
+    }
+  \end{center}
+  \advance\numerodehoja by 1
+  \ifnum\numerodehoja<\numexpr\totalhojas+1\relax
+    \clearpage
+\repeat
+
+\end{document}
